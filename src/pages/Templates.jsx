@@ -1,4 +1,5 @@
 import "./Templates.css";
+
 import { useNavigate } from "react-router-dom";
 
 function Templates() {
@@ -6,25 +7,31 @@ function Templates() {
   const navigate = useNavigate();
 
   const templates = [
+
     {
-      id: 1,
-      name: "Modern Professional"
+      id:1,
+      name:"Modern Professional",
+      className:"modern"
     },
 
     {
-      id: 2,
-      name: "Creative Dark"
+      id:2,
+      name:"Minimal ATS",
+      className:"minimal"
     },
 
     {
-      id: 3,
-      name: "Minimal Clean"
+      id:3,
+      name:"Creative Designer",
+      className:"creative"
     },
 
     {
-      id: 4,
-      name: "Executive"
+      id:4,
+      name:"Executive Pro",
+      className:"executive"
     }
+
   ];
 
   return (
@@ -38,8 +45,8 @@ function Templates() {
         </h1>
 
         <p>
-          Select a professional template and
-          start building your resume.
+          Select a beautiful template and
+          start building your professional resume.
         </p>
 
       </div>
@@ -54,24 +61,33 @@ function Templates() {
               key={template.id}
             >
 
-              <div className="template-preview">
+              <div className={`template-preview ${template.className}`}>
 
-                <div className="resume-top"></div>
+                <div className="top"></div>
 
-                <div className="resume-line"></div>
-                <div className="resume-line short"></div>
+                <div className="line"></div>
+                <div className="line short"></div>
 
-                <div className="resume-section"></div>
+                <div className="box"></div>
 
-                <div className="resume-line"></div>
-                <div className="resume-line short"></div>
+                <div className="line"></div>
+                <div className="line short"></div>
 
               </div>
 
               <h2>{template.name}</h2>
 
               <button
-                onClick={() => navigate("/builder")}
+                onClick={() => {
+
+                  localStorage.setItem(
+                    "selectedTemplate",
+                    template.className
+                  );
+
+                  navigate("/builder");
+
+                }}
               >
                 Use Template
               </button>

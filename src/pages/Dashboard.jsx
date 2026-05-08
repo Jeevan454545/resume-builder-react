@@ -12,31 +12,21 @@ import {
   MdDashboard
 } from "react-icons/md";
 
-import { useNavigate } from "react-router-dom";
+import {
+  useNavigate,
+  useLocation
+} from "react-router-dom";
 
 function Dashboard() {
 
+  const location = useLocation();
+
   const navigate = useNavigate();
 
-  const resumes = [
-    {
-      id: 1,
-      name: "Frontend Developer Resume",
-      updated: "2 hours ago"
-    },
-
-    {
-      id: 2,
-      name: "Java Full Stack Resume",
-      updated: "Yesterday"
-    },
-
-    {
-      id: 3,
-      name: "React Developer Resume",
-      updated: "3 days ago"
-    }
-  ];
+  const resumes =
+    JSON.parse(
+      localStorage.getItem("savedResumes")
+    ) || [];
 
   return (
 
@@ -50,27 +40,57 @@ function Dashboard() {
 
         <ul>
 
-          <li className="active">
+          <li
+            className={
+              location.pathname === "/dashboard"
+              ? "active"
+              : ""
+            }
+            onClick={() => navigate("/dashboard")}
+          >
             <MdDashboard />
             Dashboard
           </li>
 
-          <li>
+          <li
+            className={
+              location.pathname === "/my-resumes"
+              ? "active"
+              : ""
+            }
+            onClick={() => navigate("/my-resumes")}
+          >
             <FaFileAlt />
             My Resumes
           </li>
 
-          <li>
+          <li
+            className={
+              location.pathname === "/templates"
+              ? "active"
+              : ""
+            }
+            onClick={() => navigate("/templates")}
+          >
             <FaLayerGroup />
             Templates
           </li>
 
-          <li>
+          <li
+            className={
+              location.pathname === "/settings"
+              ? "active"
+              : ""
+            }
+            onClick={() => navigate("/settings")}
+          >
             <FaCog />
             Settings
           </li>
 
-          <li>
+          <li
+            onClick={() => navigate("/")}
+          >
             <FaSignOutAlt />
             Logout
           </li>
@@ -111,7 +131,7 @@ function Dashboard() {
 
           <div className="stat-card">
 
-            <h2>12</h2>
+            <h2>{resumes.length}</h2>
 
             <p>Total Resumes</p>
 
@@ -127,7 +147,7 @@ function Dashboard() {
 
           <div className="stat-card">
 
-            <h2>18</h2>
+            <h2>{resumes.length}</h2>
 
             <p>Downloads</p>
 
@@ -162,12 +182,10 @@ function Dashboard() {
                   <div className="preview">
 
                     <div className="line"></div>
+
                     <div className="line short"></div>
 
                     <div className="box"></div>
-
-                    <div className="line"></div>
-                    <div className="line short"></div>
 
                   </div>
 
@@ -179,13 +197,40 @@ function Dashboard() {
 
                   <div className="buttons">
 
-                    <button
-                      onClick={() => navigate("/builder")}
-                    >
-                      Edit
-                    </button>
+                   <button
+                        onClick={() => {
 
-                    <button className="delete">
+                          localStorage.setItem(
+                            "editResume",
+                            JSON.stringify(resume.data)
+                          );
+
+                          navigate("/builder");
+
+                        }}
+                      >
+                        Edit
+                   </button>
+
+                    <button
+                      className="delete"
+                      onClick={() => {
+
+                        const updatedResumes =
+                          resumes.filter(
+                            (item) =>
+                              item.id !== resume.id
+                          );
+
+                        localStorage.setItem(
+                          "savedResumes",
+                          JSON.stringify(updatedResumes)
+                        );
+
+                        window.location.reload();
+
+                      }}
+                    >
                       Delete
                     </button>
 

@@ -5,11 +5,15 @@ import {
 } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage";
-import ResumeBuilder from "./pages/ResumeBuilder";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Templates from "./pages/Templates";
 import Dashboard from "./pages/Dashboard";
+import MyResumes from "./pages/MyResumes";
+import Settings from "./pages/Settings";
+import Builder from "./pages/Builder";
+import Reviews
+from "./pages/Reviews";
 
 function App() {
 
@@ -40,13 +44,28 @@ function App() {
         />
 
         <Route
-          path="/builder"
-          element={<ResumeBuilder />}
+          path="/dashboard"
+          element={<Dashboard />}
         />
 
         <Route
-          path="/dashboard"
-          element={<Dashboard />}
+          path="/my-resumes"
+          element={<MyResumes />}
+        />
+
+        <Route
+         path="/settings"
+         element={<Settings />}
+        />
+
+        <Route
+          path="/builder"
+          element={<Builder />}
+        />
+
+        <Route
+          path="/reviews"
+          element={<Reviews />}
         />
 
       </Routes>

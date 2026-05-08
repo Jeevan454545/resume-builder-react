@@ -1,0 +1,225 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.builder-page{
+  min-height:100vh;
+  background:#020617;
+  color:white;
+  padding:30px;
+}
+
+.builder-topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.builder-topbar h1{
+  font-size:40px;
+}
+
+.builder-topbar button{
+  padding:15px 25px;
+  border:none;
+  border-radius:14px;
+  background:#8b5cf6;
+  color:white;
+  cursor:pointer;
+}
+
+.builder-container{
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:30px;
+}
+
+.form-section{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.form-card{
+  background:#0f172a;
+  padding:25px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.form-card h2{
+  margin-bottom:20px;
+}
+
+.form-card input,
+.form-card textarea{
+  width:100%;
+  margin-bottom:18px;
+  padding:16px;
+  border:none;
+  outline:none;
+  border-radius:14px;
+  background:#1e293b;
+  color:white;
+}
+
+.form-card textarea{
+  min-height:120px;
+  resize:none;
+}
+
+.preview-section{
+  display:flex;
+  justify-content:center;
+}
+
+.resume-paper{
+  width:100%;
+  max-width:850px;
+  background:white;
+  color:black;
+  padding:50px;
+  border-radius:24px;
+  min-height:1000px;
+}
+
+.resume-paper h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.resume-paper h2{
+  margin-top:30px;
+  margin-bottom:15px;
+}
+
+.resume-paper p{
+  margin-bottom:10px;
+  line-height:1.7;
+}
+
+.resume-paper hr{
+  margin:25px 0;
+}
+
+@media(max-width:1100px){
+
+  .builder-container{
+    grid-template-columns:1fr;
+  }
+
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.section-title button{
+  padding:10px 18px;
+  border:none;
+  border-radius:10px;
+  background:#8b5cf6;
+  color:white;
+  cursor:pointer;
+}
+
+.dynamic-box{
+  background:#1e293b;
+  padding:20px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+
+.remove-btn{
+  width:100%;
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#ef4444;
+  color:white;
+  cursor:pointer;
+}
+
+.resume-paper.modern{
+  background:white;
+  color:black;
+}
+
+.resume-paper.minimal{
+  background:#f8fafc;
+  color:#0f172a;
+}
+
+.resume-paper.creative{
+  background:linear-gradient(
+    180deg,
+    #ede9fe,
+    #ddd6fe
+  );
+  color:#312e81;
+}
+
+.resume-paper.executive{
+  background:#111827;
+  color:white;
+}
+
+@media(max-width:992px){
+
+  .builder-container{
+    flex-direction:column;
+  }
+
+  .form-section{
+    width:100%;
+  }
+
+  .preview-section{
+    width:100%;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .builder-topbar{
+    flex-direction:column;
+    gap:20px;
+    align-items:flex-start;
+  }
+
+  .top-buttons{
+    width:100%;
+    display:flex;
+    gap:10px;
+  }
+
+  .top-buttons button{
+    flex:1;
+  }
+
+  .resume-paper{
+    padding:25px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .builder-page{
+    padding:20px;
+  }
+
+  .resume-paper h1{
+    font-size:28px;
+  }
+
+}

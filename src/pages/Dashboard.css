@@ -210,3 +210,34 @@
   }
 
 }
+
+@media(max-width:992px){
+
+  .dashboard{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+    height:auto;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .topbar{
+    flex-direction:column;
+    gap:20px;
+    align-items:flex-start;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .resume-grid{
+    grid-template-columns:1fr;
+  }
+
+}
