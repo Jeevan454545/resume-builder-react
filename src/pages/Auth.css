@@ -1,4 +1,4 @@
-.login-page{
+.auth-page{
 
   min-height:100vh;
 
@@ -11,20 +11,19 @@
   background:
   linear-gradient(
     135deg,
-    #0f172a,
-    #1e293b,
-    #2563eb
+    #2563eb,
+    #7c3aed
   );
 
   padding:20px;
 
 }
 
-.login-card{
+.auth-card{
 
   width:100%;
 
-  max-width:430px;
+  max-width:420px;
 
   background:white;
 
@@ -33,15 +32,13 @@
   border-radius:25px;
 
   box-shadow:
-  0 15px 40px rgba(0,0,0,0.2);
-
-  text-align:center;
+  0 10px 40px rgba(0,0,0,0.15);
 
 }
 
-.login-card h1{
+.auth-card h1{
 
-  font-size:32px;
+  text-align:center;
 
   color:#0f172a;
 
@@ -49,15 +46,17 @@
 
 }
 
-.login-card p{
+.auth-card p{
+
+  text-align:center;
 
   color:#64748b;
 
-  margin-bottom:30px;
+  margin-bottom:25px;
 
 }
 
-.login-card form{
+.auth-card form{
 
   display:flex;
 
@@ -67,29 +66,29 @@
 
 }
 
-.login-card input{
+.auth-card input{
 
-  padding:15px;
+  padding:14px;
 
   border:1px solid #cbd5e1;
 
   border-radius:12px;
 
-  font-size:16px;
+  font-size:15px;
 
   outline:none;
 
 }
 
-.login-card input:focus{
+.auth-card input:focus{
 
   border-color:#2563eb;
 
 }
 
-.login-card button{
+.auth-card button{
 
-  padding:15px;
+  padding:14px;
 
   border:none;
 
@@ -101,33 +100,29 @@
 
   font-size:16px;
 
-  font-weight:600;
-
   cursor:pointer;
 
   transition:0.3s;
 
 }
 
-.login-card button:hover{
+.auth-card button:hover{
 
   background:#1d4ed8;
 
 }
 
-.auth-link{
+.switch-auth{
 
   margin-top:20px;
 
-  color:#475569;
-
 }
 
-.auth-link a{
-
-  margin-left:5px;
+.switch-auth a{
 
   color:#2563eb;
+
+  margin-left:6px;
 
   text-decoration:none;
 

@@ -1,14 +1,25 @@
 import "./Settings.css";
-
-import {
-  FaUserCircle
-} from "react-icons/fa";
+import { FaUserCircle, FaHome } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Settings() {
+
+  const navigate = useNavigate();
+
+  const user =
+    JSON.parse(localStorage.getItem("user")) || {};
 
   return (
 
     <div className="settings-page">
+
+      <button
+        className="home-btn"
+        onClick={() => navigate("/")}
+      >
+        <FaHome />
+        Home
+      </button>
 
       <div className="settings-header">
 
@@ -28,10 +39,12 @@ function Settings() {
 
           <FaUserCircle className="profile-icon" />
 
-          <h2>Jeevan Patil</h2>
+          <h2>
+            {user.name || "User"}
+          </h2>
 
           <p>
-            jeevan@gmail.com
+            {user.email || "user@gmail.com"}
           </p>
 
         </div>
@@ -50,7 +63,8 @@ function Settings() {
 
             <input
               type="text"
-              placeholder="Enter username"
+              value={user.name || ""}
+              readOnly
             />
 
           </div>
@@ -63,7 +77,8 @@ function Settings() {
 
             <input
               type="email"
-              placeholder="Enter email"
+              value={user.email || ""}
+              readOnly
             />
 
           </div>
@@ -76,7 +91,8 @@ function Settings() {
 
             <input
               type="password"
-              placeholder="Change password"
+              value="123456"
+              readOnly
             />
 
           </div>
@@ -113,7 +129,16 @@ function Settings() {
 
           </div>
 
-          <button className="logout-btn">
+          <button
+            className="logout-btn"
+            onClick={() => {
+
+              localStorage.removeItem("user");
+
+              navigate("/login");
+
+            }}
+          >
             Logout
           </button>
 

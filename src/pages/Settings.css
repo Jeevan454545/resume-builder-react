@@ -12,6 +12,20 @@
   padding:50px;
 }
 
+.home-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 22px;
+  border:none;
+  border-radius:12px;
+  background:#8b5cf6;
+  color:white;
+  cursor:pointer;
+  margin-bottom:30px;
+  font-size:15px;
+}
+
 .settings-header{
   margin-bottom:40px;
 }
@@ -100,15 +114,6 @@
   justify-content:space-between;
   align-items:center;
   margin-bottom:30px;
-}
-
-.toggle span{
-  color:#cbd5e1;
-}
-
-.toggle input{
-  width:20px;
-  height:20px;
 }
 
 .logout-btn{

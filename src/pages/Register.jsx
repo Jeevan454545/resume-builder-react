@@ -1,72 +1,187 @@
-import "./Register.css";
-import { useNavigate } from "react-router-dom";
+import React, {
+  useState
+} from "react";
+
+import "./Auth.css";
+
+import axios from "axios";
+
+import {
+  useNavigate,
+  Link
+} from "react-router-dom";
 
 function Register() {
 
-  const navigate = useNavigate();
+  const navigate =
+    useNavigate();
+
+  const [formData, setFormData] =
+    useState({
+
+      name:"",
+      email:"",
+      password:"",
+      confirmPassword:""
+
+    });
+
+  const handleChange = (e) => {
+
+    setFormData({
+
+      ...formData,
+
+      [e.target.name]:
+      e.target.value
+
+    });
+
+  };
+
+  const handleSubmit =
+    async (e) => {
+
+    e.preventDefault();
+
+    if(
+
+      formData.password !==
+      formData.confirmPassword
+
+    ) {
+
+      alert(
+        "Passwords Do Not Match"
+      );
+
+      return;
+
+    }
+
+    try {
+
+      await axios.post(
+
+        "http://localhost:1234/api/users/register",
+
+        {
+
+          name:
+            formData.name,
+
+          email:
+            formData.email,
+
+          password:
+            formData.password
+
+        }
+
+      );
+
+      alert(
+        "Registration Successful!"
+      );
+
+      navigate(
+        "/login"
+      );
+
+    }
+
+    catch(error) {
+
+      console.log(error);
+
+      alert(
+        "Registration Failed"
+      );
+
+    }
+
+  };
 
   return (
 
-    <div className="register-page">
+    <div className="auth-page">
 
-      <div className="register-box">
+      <div className="auth-card">
 
-        <h1>Create Account</h1>
+        <h1>
+          Create Account
+        </h1>
 
         <p>
-          Join ResumeAI and build professional
-          resumes with modern templates.
+          Register to start building resumes
         </p>
 
         <form
-           onSubmit={(e) => {
-            e.preventDefault();
-            navigate("/dashboard")
-            }}
+          onSubmit={handleSubmit}
         >
 
           <input
             type="text"
-            placeholder="Enter your full name"
+            name="name"
+            placeholder="Enter Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
           />
 
           <input
             type="email"
-            placeholder="Enter your email"
+            name="email"
+            placeholder="Enter Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
           />
 
           <input
             type="password"
-            placeholder="Create password"
+            name="password"
+            placeholder="Create Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
           />
 
           <input
             type="password"
-            placeholder="Confirm password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
           />
 
           <button type="submit">
-            Create Account
+
+            Register
+
           </button>
 
         </form>
 
-        <div className="bottom-text">
+        <p className="switch-auth">
 
           Already have an account?
 
-          <span
-            onClick={() => navigate("/login")}
-          >
-            {" "}Login
-          </span>
+          <Link to="/login">
 
-        </div>
+            Login
+
+          </Link>
+
+        </p>
 
       </div>
 
     </div>
+
   );
+
 }
 
 export default Register;

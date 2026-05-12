@@ -1,6 +1,16 @@
 import "./Templates.css";
 
+import {
+  FaCheckCircle,
+  FaCrown,
+  FaFire
+} from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom";
+
+import { FaHome } from "react-icons/fa";
+
+
 
 function Templates() {
 
@@ -10,43 +20,62 @@ function Templates() {
 
     {
       id:1,
-      name:"Modern Professional",
-      className:"modern"
+      name:"Modern Resume",
+      badge:"Popular",
+      color:"#0f4c75",
+      template:"modern"
     },
 
     {
       id:2,
-      name:"Minimal ATS",
-      className:"minimal"
+      name:"Professional Resume",
+      badge:"Premium",
+      color:"#8b5cf6",
+      template:"professional"
     },
 
     {
       id:3,
-      name:"Creative Designer",
-      className:"creative"
-    },
-
-    {
-      id:4,
-      name:"Executive Pro",
-      className:"executive"
+      name:"Creative Resume",
+      badge:"Trending",
+      color:"#ec4899",
+      template:"creative"
     }
 
   ];
+
+  const selectTemplate = (template) => {
+
+    localStorage.setItem(
+      "selectedTemplate",
+      template.template
+    );
+
+    navigate("/builder");
+
+  };
 
   return (
 
     <div className="templates-page">
 
+      <button
+        className="home-btn"
+        onClick={() => navigate("/")}
+      >
+        <FaHome />
+        Home
+      </button>
+
       <div className="templates-header">
 
         <h1>
-          Choose Your Resume Template
+          Choose Your Template
         </h1>
 
         <p>
-          Select a beautiful template and
-          start building your professional resume.
+          Select a premium resume design
+          for your professional career.
         </p>
 
       </div>
@@ -54,45 +83,123 @@ function Templates() {
       <div className="templates-grid">
 
         {
-          templates.map((template) => (
+          templates.map((item) => (
 
             <div
               className="template-card"
-              key={template.id}
+              key={item.id}
             >
 
-              <div className={`template-preview ${template.className}`}>
+              <div
+                className="template-preview"
+              >
 
-                <div className="top"></div>
+                <div className="resume-demo">
 
-                <div className="line"></div>
-                <div className="line short"></div>
+                  <div
+                    className="left-strip"
+                    style={{
+                      background:item.color
+                    }}
+                  >
 
-                <div className="box"></div>
+                    <div className="profile-circle"></div>
 
-                <div className="line"></div>
-                <div className="line short"></div>
+                    <div className="small-line"></div>
+
+                    <div className="small-line short"></div>
+
+                    <div className="small-box"></div>
+
+                  </div>
+
+                  <div className="right-content">
+
+                    <div
+                      className="header-box"
+                      style={{
+                        background:item.color
+                      }}
+                    ></div>
+
+                    <div className="line"></div>
+
+                    <div className="line short"></div>
+
+                    <div className="box"></div>
+
+                    <div className="line"></div>
+
+                    <div className="line short"></div>
+
+                  </div>
+
+                </div>
 
               </div>
 
-              <h2>{template.name}</h2>
+              <div className="template-info">
 
-              <button
-                onClick={() => {
+                <div
+                  className="badge"
+                  style={{
+                    background:item.color
+                  }}
+                >
 
-                  localStorage.setItem(
-                    "selectedTemplate",
-                    template.className
-                  );
+                  {
+                    item.badge === "Premium"
+                    ? <FaCrown />
+                    : <FaFire />
+                  }
 
-                  navigate("/builder");
+                  {item.badge}
 
-                }}
-              >
-                Use Template
-              </button>
+                </div>
+
+                <h2>
+                  {item.name}
+                </h2>
+
+                <p>
+                  ATS Friendly Professional
+                  Resume Design
+                </p>
+
+                <div className="features">
+
+                  <span>
+                    <FaCheckCircle />
+                    Live Preview
+                  </span>
+
+                  <span>
+                    <FaCheckCircle />
+                    PDF Download
+                  </span>
+
+                  <span>
+                    <FaCheckCircle />
+                    Modern Layout
+                  </span>
+
+                </div>
+
+                <button
+                  style={{
+                    background:item.color
+                  }}
+                  onClick={() =>
+                    selectTemplate(item)
+                  }
+                >
+                  Use Template
+                </button>
+
+              </div>
 
             </div>
+
           ))
         }
 

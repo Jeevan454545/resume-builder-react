@@ -9,11 +9,15 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Templates from "./pages/Templates";
 import Dashboard from "./pages/Dashboard";
-import MyResumes from "./pages/MyResumes";
-import Settings from "./pages/Settings";
+
+
 import Builder from "./pages/Builder";
 import Reviews
 from "./pages/Reviews";
+import MyResumes
+from "./pages/MyResumes";
+import Settings
+from "./pages/Settings";
 
 function App() {
 
@@ -67,6 +71,8 @@ function App() {
           path="/reviews"
           element={<Reviews />}
         />
+
+        
 
       </Routes>
 

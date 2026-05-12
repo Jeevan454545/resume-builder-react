@@ -1,86 +1,136 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
-}
-
 .register-page{
-  width:100%;
+
   min-height:100vh;
-  background:#020617;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #7c3aed
+  );
+
+  padding:20px;
+
+}
+
+.register-card{
+
+  width:100%;
+
+  max-width:430px;
+
+  background:white;
+
   padding:40px;
-}
 
-.register-box{
-  width:450px;
-  padding:50px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(20px);
   border-radius:25px;
-  color:white;
-  box-shadow:0 0 40px rgba(139,92,246,0.25);
-}
 
-.register-box h1{
-  font-size:42px;
-  margin-bottom:10px;
-}
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.2);
 
-.register-box p{
-  color:#cbd5e1;
-  margin-bottom:35px;
-  line-height:1.6;
-}
-
-.register-box form{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-.register-box input{
-  padding:18px;
-  border:none;
-  outline:none;
-  border-radius:14px;
-  background:rgba(255,255,255,0.08);
-  color:white;
-  font-size:16px;
-}
-
-.register-box input::placeholder{
-  color:#94a3b8;
-}
-
-.register-box button{
-  padding:18px;
-  border:none;
-  border-radius:14px;
-  background:#8b5cf6;
-  color:white;
-  font-size:17px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.register-box button:hover{
-  transform:translateY(-2px);
-  background:#7c3aed;
-}
-
-.bottom-text{
-  margin-top:25px;
   text-align:center;
-  color:#cbd5e1;
+
 }
 
-.bottom-text span{
-  color:#8b5cf6;
+.register-card h1{
+
+  font-size:32px;
+
+  color:#0f172a;
+
+  margin-bottom:10px;
+
+}
+
+.register-card p{
+
+  color:#64748b;
+
+  margin-bottom:30px;
+
+}
+
+.register-card form{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:18px;
+
+}
+
+.register-card input{
+
+  padding:15px;
+
+  border:1px solid #cbd5e1;
+
+  border-radius:12px;
+
+  font-size:16px;
+
+  outline:none;
+
+}
+
+.register-card input:focus{
+
+  border-color:#7c3aed;
+
+}
+
+.register-card button{
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#7c3aed;
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:600;
+
   cursor:pointer;
-  font-weight:bold;
+
+  transition:0.3s;
+
+}
+
+.register-card button:hover{
+
+  background:#6d28d9;
+
+}
+
+.auth-link{
+
+  margin-top:20px;
+
+  color:#475569;
+
+}
+
+.auth-link a{
+
+  margin-left:5px;
+
+  color:#7c3aed;
+
+  text-decoration:none;
+
+  font-weight:600;
+
 }

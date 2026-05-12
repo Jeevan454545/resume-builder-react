@@ -1,72 +1,82 @@
+import React, {
+  useEffect,
+  useState
+} from "react";
+
 import "./MyResumes.css";
 
-import {
-  FaSearch,
-  FaEdit,
-  FaTrash,
-  FaDownload
-} from "react-icons/fa";
+import axios from "axios";
 
-import { useNavigate } from "react-router-dom";
+import {
+  useNavigate
+} from "react-router-dom";
+
+import { FaHome } from "react-icons/fa";
 
 function MyResumes() {
 
-  const navigate = useNavigate();
+  const navigate =
+    useNavigate();
 
-  const resumes = [
-    {
-      id: 1,
-      name: "Frontend Developer Resume",
-      updated: "2 hours ago"
-    },
+  const [resumes, setResumes] =
+    useState([]);
 
-    {
-      id: 2,
-      name: "Java Full Stack Resume",
-      updated: "Yesterday"
-    },
+  useEffect(() => {
 
-    {
-      id: 3,
-      name: "React Developer Resume",
-      updated: "3 days ago"
+    fetchResumes();
+
+  }, []);
+
+  const fetchResumes =
+    async () => {
+
+    try {
+
+      const response =
+        await axios.get(
+          "http://localhost:1234/api/resumes"
+        );
+
+      setResumes(
+        response.data
+      );
+
     }
-  ];
+
+    catch(error) {
+
+      console.log(error);
+
+    }
+
+  };
 
   return (
 
-    <div className="my-resumes-page">
+    <div className="myresumes-page">
 
-      <div className="top-section">
+      <button
+        className="home-btn"
+        onClick={() => navigate("/")}
+      >
+        <FaHome />
+        Home
+      </button>
 
-        <div>
+      <div className="top-bar">
 
-          <h1>
-            My Resumes
-          </h1>
-
-          <p>
-            Manage and edit all your resumes.
-          </p>
-
-        </div>
+        <h1>
+          My Resumes
+        </h1>
 
         <button
-          onClick={() => navigate("/templates")}
+          className="create-btn"
+          onClick={() =>
+            navigate("/builder")
+          }
         >
-          + Create Resume
+          Create Resume
         </button>
-
-      </div>
-
-      <div className="search-bar">
-
-        <FaSearch />
-
-        <input
-          type="text"
-          placeholder="Search resumes..."
-        />
 
       </div>
 
@@ -80,59 +90,29 @@ function MyResumes() {
               key={resume.id}
             >
 
-              <div className="preview">
-
-                <div className="line"></div>
-
-                <div className="line short"></div>
-
-                <div className="box"></div>
-
-                <div className="line"></div>
-
-                <div className="line short"></div>
-
-              </div>
-
-              <h2>{resume.name}</h2>
+              <h2>
+                {resume.name}
+              </h2>
 
               <p>
-                Updated {resume.updated}
+                {resume.email}
               </p>
 
-              <div className="actions">
-
-                <button
-                  onClick={() => navigate("/builder")}
-                >
-                  <FaEdit />
-                  Edit
-                </button>
-
-                <button className="download">
-
-                  <FaDownload />
-                  Download
-
-                </button>
-
-                <button className="delete">
-
-                  <FaTrash />
-                  Delete
-
-                </button>
-
-              </div>
+              <p>
+                {resume.phone}
+              </p>
 
             </div>
+
           ))
         }
 
       </div>
 
     </div>
+
   );
+
 }
 
 export default MyResumes;

@@ -4,7 +4,8 @@ import {
   FaFileAlt,
   FaDownload,
   FaLayerGroup,
-  FaCheckCircle
+  FaCheckCircle,
+  FaStar
 } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
@@ -61,7 +62,9 @@ function LandingPage() {
         </ul>
 
         <button
-          onClick={() => navigate("/login")}
+          onClick={() =>
+            navigate("/login")
+          }
         >
           Login
         </button>
@@ -73,28 +76,32 @@ function LandingPage() {
         <div className="hero-left">
 
           <h1>
-            Build Professional Resumes
-            In Minutes
+            Build Professional
+            Resumes In Minutes
           </h1>
 
           <p>
-            Create modern and ATS-friendly resumes
-            using beautiful templates and
-            powerful editing tools.
+            Create modern and ATS-friendly
+            resumes using beautiful templates
+            and powerful editing tools.
           </p>
 
           <div className="hero-buttons">
 
             <button
               className="primary-btn"
-              onClick={() => navigate("/login")}
+              onClick={() =>
+                navigate("/login")
+              }
             >
               Start Building
             </button>
 
             <button
               className="secondary-btn"
-              onClick={() => navigate("/templates")}
+              onClick={() =>
+                navigate("/templates")
+              }
             >
               View Templates
             </button>
@@ -105,19 +112,47 @@ function LandingPage() {
 
         <div className="hero-right">
 
-          <div className="resume-preview">
+          <div className="hero-template-card">
 
-            <div className="circle"></div>
+            <div className="hero-template-sidebar">
 
-            <div className="line"></div>
+              <div className="profile-circle"></div>
 
-            <div className="line short"></div>
+              <div className="side-line"></div>
 
-            <div className="box"></div>
+              <div className="side-line short"></div>
 
-            <div className="line"></div>
+              <div className="side-box"></div>
 
-            <div className="line short"></div>
+              <div className="side-line"></div>
+
+            </div>
+
+            <div className="hero-template-content">
+
+              <div className="template-header">
+
+                <h2>Digvijay Wagare</h2>
+
+                <p>
+                  Full Stack Developer
+                </p>
+
+              </div>
+
+              <div className="content-line"></div>
+
+              <div className="content-line short"></div>
+
+              <div className="content-box"></div>
+
+              <div className="content-line"></div>
+
+              <div className="content-line short"></div>
+
+              <div className="content-box small"></div>
+
+            </div>
 
           </div>
 
@@ -131,14 +166,16 @@ function LandingPage() {
       >
 
         <h2>
-          Why Choose ResumeAI?
+          Why Choose US?
         </h2>
 
         <div className="feature-grid">
 
           <div className="feature-card">
 
-            <FaFileAlt />
+            <div className="feature-icon">
+              <FaFileAlt />
+            </div>
 
             <h3>
               ATS Friendly
@@ -146,37 +183,41 @@ function LandingPage() {
 
             <p>
               Build resumes optimized for
-              hiring systems.
+              modern hiring systems.
             </p>
 
           </div>
 
           <div className="feature-card">
 
-            <FaLayerGroup />
+            <div className="feature-icon">
+              <FaLayerGroup />
+            </div>
 
             <h3>
-              Modern Templates
+              Premium Templates
             </h3>
 
             <p>
-              Choose from multiple professional
-              resume designs.
+              Beautiful resume templates
+              for every profession.
             </p>
 
           </div>
 
           <div className="feature-card">
 
-            <FaDownload />
+            <div className="feature-icon">
+              <FaDownload />
+            </div>
 
             <h3>
-              Instant Download
+              Instant PDF
             </h3>
 
             <p>
               Download resumes instantly
-              in PDF format.
+              with one click.
             </p>
 
           </div>
@@ -193,11 +234,49 @@ function LandingPage() {
 
         <div className="template-showcase">
 
-          <div className="template-box"></div>
+          <div className="landing-template modern">
 
-          <div className="template-box"></div>
+            <div className="mini-sidebar"></div>
 
-          <div className="template-box"></div>
+            <div className="mini-content">
+
+              <div className="mini-header"></div>
+
+              <div className="mini-line"></div>
+
+              <div className="mini-line short"></div>
+
+              <div className="mini-box"></div>
+
+            </div>
+
+          </div>
+
+          <div className="landing-template premium">
+
+            <div className="mini-header purple"></div>
+
+            <div className="mini-line"></div>
+
+            <div className="mini-line short"></div>
+
+            <div className="mini-box"></div>
+
+            <div className="mini-line"></div>
+
+          </div>
+
+          <div className="landing-template creative">
+
+            <div className="creative-top"></div>
+
+            <div className="mini-line"></div>
+
+            <div className="mini-box"></div>
+
+            <div className="mini-line short"></div>
+
+          </div>
 
         </div>
 
@@ -213,45 +292,45 @@ function LandingPage() {
 
           <div className="review-card">
 
-            <FaCheckCircle />
+            <FaStar />
 
             <p>
               Amazing platform for creating
-              modern resumes quickly.
+              professional resumes quickly.
             </p>
 
             <h4>
-              Rahul Sharma
+              Vishal Gudase
             </h4>
 
           </div>
 
           <div className="review-card">
 
-            <FaCheckCircle />
+            <FaStar />
 
             <p>
               Beautiful templates and
-              very easy to use.
+              easy to use interface.
             </p>
 
             <h4>
-              Priya Verma
+              Vaibhav Wagare
             </h4>
 
           </div>
 
           <div className="review-card">
 
-            <FaCheckCircle />
+            <FaStar />
 
             <p>
-              Helped me create a professional
-              resume for placements.
+              Helped me create placement-ready
+              resume within minutes.
             </p>
 
             <h4>
-              Aman Gupta
+              Pratik Jadhav
             </h4>
 
           </div>
